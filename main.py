@@ -51,9 +51,12 @@ class Game:
             print("Enter integer position.")
 
 
+    def RandomAI(self):
+        return random.randint(1,9)
+    
     def ai_turn(self):
         try:
-            x = random.randint(1,9)
+            x = self.RandomAI()
             if x in self.done:
                 raise AssertionError
             self.done.append(x)
@@ -129,5 +132,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 

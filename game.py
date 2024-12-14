@@ -1,6 +1,6 @@
 import numpy as np
 import random
-
+from colorama import Fore,Back,Style
 
 class Game:
     # Creating a board upon calling
@@ -12,7 +12,7 @@ class Game:
         self.win = False
         self.ai = True
 
-
+    # Selects AI or player mode.
     def mode(self):
         try:
             m = int(input("Enter 1 for AI and 2 for 2 players: "))
@@ -23,6 +23,7 @@ class Game:
 
     # Declare player turn
     def declare(self):
+        print("")
         if(self.turn == -1):
             print("It's Player 1's turn (  O  )")
         else:
@@ -68,16 +69,21 @@ class Game:
         except AssertionError:
             pass
 
+    def style_reset(self):
+        print(Style.RESET_ALL,end='')
 
     def display(self):
         for i in range(3):
             for j in range(3):
                 if(self.board[i,j] == -1):
-                    print(" O ",end='')
+                    print(Fore.RED + " O ",end='')
+                    self.style_reset()
                 elif(self.board[i,j] == 1):
-                    print(" X ",end="")
+                    print(Fore.BLUE + " X ",end="")
+                    self.style_reset()
                 else:
                     print(" _ ",end="")
+                    self.style_reset()
             print("")
 
     def win_check(self):
@@ -109,17 +115,19 @@ class Game:
                 self.ai_turn()
             else:
                 self.player_turn()
-            print(f"Turns {self.no}")
+            print(f"Turn: {self.no}")
             self.win_check()
             if(self.win == True):
                 self.turn *= -1
                 if(self.turn == -1):
                     self.display()
-                    print("Player 1 Wins!")
+                    print(Fore.GREEN + "Player 1 Wins!")
+                    self.style_reset()
                     quit()
                 else:
                     self.display()
-                    print("Player 2 Wins!")
+                    print(Fore.GREEN + "Player 2 Wins!")
+                    self.style_reset()
                     quit()
         self.display()
         print("The Match is Drawn")

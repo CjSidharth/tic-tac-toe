@@ -15,7 +15,7 @@ pip install pipenv
 ```
 Install colorama and sync.
 ```bash
-git clone <url>
+git clone https://github.com/CjSidharth/tic-tac-toe
 cd tic-tac-toe
 pipenv install colorama
 pipenv sync

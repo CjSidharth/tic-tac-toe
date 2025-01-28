@@ -1,5 +1,6 @@
 # Tic Tac Toe with Minimax AI
 Implemented Tic Tac Toe game with basic Minimax Algorithm. Basically unbeatable because it recursively generates all game states and assuming optimal gameplay always manages to secure atleast a draw.
+![](images/algo.png)
 
 ## Getting Started
 This will show you how to set up a local copy of the program.
